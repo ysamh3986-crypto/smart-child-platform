@@ -1,1 +1,124 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>أكاديمية الطفل الذكي</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f8ff;color:#25264a}
+header{background:linear-gradient(135deg,#6657d9,#8e7cf2);color:white;padding:28px 18px;text-align:center}
+header h1{margin:0 0 8px;font-size:30px} header p{margin:0;font-size:16px}
+nav{display:flex;gap:8px;overflow:auto;padding:12px;background:white;position:sticky;top:0;z-index:2;box-shadow:0 2px 10px #0001}
+nav button{border:0;background:#eeeefe;color:#40379a;padding:11px 15px;border-radius:20px;white-space:nowrap;font-weight:bold;cursor:pointer}
+nav button.active{background:#6657d9;color:white}
+main{max-width:950px;margin:auto;padding:20px}.page{display:none}.page.active{display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:white;border-radius:18px;padding:20px;box-shadow:0 5px 18px #34306414}
+.card h3{margin-top:0}.emoji{font-size:38px}
+.primary{border:0;background:#6657d9;color:white;padding:12px 20px;border-radius:12px;cursor:pointer;font-weight:bold}
+.letter{font-size:80px;text-align:center;margin:20px;color:#6657d9;font-weight:bold}
+.option{display:block;width:100%;padding:14px;margin:9px 0;border:2px solid #e5e4f5;background:white;border-radius:12px;text-align:right;cursor:pointer}
+.option:hover{border-color:#6657d9}.correct{background:#dcfce7!important;border-color:#22c55e!important}.wrong{background:#fee2e2!important;border-color:#ef4444!important}
+input{padding:13px;border:1px solid #ddd;border-radius:10px;width:100%;margin:8px 0;font-size:16px}
+.cert{background:white;border:8px double #6657d9;padding:35px;text-align:center;border-radius:15px}
+.small{color:#666;font-size:14px}.score{font-size:24px;font-weight:bold;margin:15px 0}
+</style>
+</head>
+<body>
+<header>
+<h1>🌟 أكاديمية الطفل الذكي</h1>
+<p>نتعلم • نلعب • نختبر • ننجح</p>
+</header>
+
+<nav>
+<button class="active" onclick="show('home',this)">🏠 الرئيسية</button>
+<button onclick="show('arabic',this)">📚 عربي</button>
+<button onclick="show('english',this)">🇬🇧 Grammar</button>
+<button onclick="show('games',this)">🎮 الألعاب</button>
+<button onclick="show('quiz',this)">📝 الاختبار</button>
+<button onclick="show('certificate',this)">🏆 الشهادة</button>
+</nav>
+
+<main>
+<section id="home" class="page active">
+<div class="card">
+<h2>أهلاً يا بطل! 👋</h2>
+<p>دي أول نسخة تجريبية من منصتك التعليمية. اختار القسم وابدأ التعلم.</p>
+</div><br>
+<div class="cards">
+<div class="card"><div class="emoji">📖</div><h3>اللغة العربية</h3><p>الحركات القصيرة بطريقة بسيطة.</p><button class="primary" onclick="show('arabic')">ابدأ الدرس</button></div>
+<div class="card"><div class="emoji">🇬🇧</div><h3>English Grammar</h3><p>دروس وقواعد وتمارين للأطفال.</p><button class="primary" onclick="show('english')">ابدأ</button></div>
+<div class="card"><div class="emoji">🎮</div><h3>ألعاب تعليمية</h3><p>تعلم من خلال اللعب والتفاعل.</p><button class="primary" onclick="show('games')">العب الآن</button></div>
+</div>
+</section>
+
+<section id="arabic" class="page">
+<div class="card"><h2>📚 درس الحركات القصيرة</h2><p>اضغط على الحركة واقرأ الحرف.</p>
+<div class="letter">بَ</div><p style="text-align:center">بَ = باء بالفتحة</p>
+<div class="cards">
+<div class="card"><h3>َ الفتحة</h3><p>بَ — تَ — مَ</p></div>
+<div class="card"><h3>ُ الضمة</h3><p>بُ — تُ — مُ</p></div>
+<div class="card"><h3>ِ الكسرة</h3><p>بِ — تِ — مِ</p></div>
+</div></div>
+</section>
+
+<section id="english" class="page">
+<div class="card"><h2>🇬🇧 English Grammar</h2><h3>Verb to be</h3><p>I <b>am</b> happy.</p><p>He <b>is</b> happy.</p><p>They <b>are</b> happy.</p><button class="primary" onclick="alert('ممتاز! هنضيف تدريبات أكتر في النسخة القادمة 🎉')">تدريب سريع</button></div>
+</section>
+
+<section id="games" class="page">
+<div class="card"><h2>🎮 لعبة اختر الحركة الصحيحة</h2><p>الحرف هو: <b>ب</b> — اختر الصوت الصحيح.</p>
+<button class="option" onclick="game(this,false)">بُ</button>
+<button class="option" onclick="game(this,true)">بَ</button>
+<button class="option" onclick="game(this,false)">بِ</button>
+<div id="gameMsg" class="score"></div></div>
+</section>
+
+<section id="quiz" class="page">
+<div class="card"><h2>📝 اختبار الحركات</h2><p>ما الحركة في: <b>مِ</b>؟</p>
+<button class="option q" onclick="answer(this,false)">الفتحة</button>
+<button class="option q" onclick="answer(this,false)">الضمة</button>
+<button class="option q" onclick="answer(this,true)">الكسرة</button>
+<div id="quizMsg" class="score"></div>
+</div>
+</section>
+
+<section id="certificate" class="page">
+<div class="card"><h2>🏆 شهادة إتمام</h2>
+<p>اكتب اسم الطفل ثم اضغط إصدار الشهادة.</p>
+<input id="childName" placeholder="اسم الطفل">
+<button class="primary" onclick="makeCert()">إصدار الشهادة</button>
+<br><br>
+<div id="cert" class="cert" style="display:none">
+<div style="font-size:42px">🏆</div><h2>شهادة إتمام</h2>
+<p>تشهد أكاديمية الطفل الذكي بأن</p><h1 id="certName"></h1>
+<p>قد أتم بنجاح درس <b>الحركات القصيرة</b></p>
+<p>🌟 أحسنت يا بطل 🌟</p>
+</div></div>
+</section>
+</main>
+
+<script>
+function show(id,btn){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ if(btn){document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
+ window.scrollTo(0,0)
+}
+function game(el,ok){
+ el.classList.add(ok?'correct':'wrong');
+ document.getElementById('gameMsg').textContent=ok?'🎉 إجابة صحيحة!':'❌ حاول مرة أخرى';
+}
+function answer(el,ok){
+ document.querySelectorAll('.q').forEach(x=>x.disabled=true);
+ el.classList.add(ok?'correct':'wrong');
+ document.getElementById('quizMsg').textContent=ok?'🌟 ممتاز! إجابة صحيحة':'❌ الإجابة الصحيحة هي الكسرة';
+}
+function makeCert(){
+ let n=document.getElementById('childName').value.trim();
+ if(!n){alert('اكتب اسم الطفل أولاً');return}
+ document.getElementById('certName').textContent=n;
+ document.getElementById('cert').style.display='block';
+}
+</script>
+</body></html>
